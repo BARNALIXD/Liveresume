@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barnali Das - Full-Stack Developer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;600;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Roboto', sans-serif;
+            line-height: 1.7;
+            color: #2c2c2c;
+            background: #ffffff;
+        }
+
+        .container {
+            max-width: 950px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header */
+        header {
+            background: #000000;
+            color: white;
+            padding: 45px 20px;
+            text-align: center;
+            border-bottom: 2px solid #000000;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
+
+        header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 12px;
+            font-weight: 700;
+            letter-spacing: -1px;
+            color: #ffffff;
+        }
+
+        header p {
+            font-size: 0.95rem;
+            opacity: 0.95;
+            margin-bottom: 16px;
+            font-weight: 400;
+        }
+
+        .header-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 18px;
+            margin-top: 18px;
+        }
+
+        .header-links a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            border-bottom: 2px solid transparent;
+        }
+
+        .header-links a:hover {
+            border-bottom: 2px solid #ffffff;
+            opacity: 0.85;
+        }
+
+        .btn-download {
+            background: #000000;
+            color: #ffffff;
+            padding: 11px 24px;
+            border-radius: 4px;
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            border: 2px solid #000000;
+            font-size: 0.9rem;
+        }
+
+        .btn-download:hover {
+            background: #ffffff;
+            color: #000000;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        /* Sections */
+        section {
+            background: #ffffff;
+            margin: 24px 0;
+            padding: 32px;
+            border-radius: 0;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            border-left: 3px solid #000000;
+            border-top: 1px solid #e8e8e8;
+        }
+
+        section h2 {
+            font-size: 1.6rem;
+            color: #000000;
+            margin-bottom: 22px;
+            border-bottom: 2px solid #000000;
+            padding-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 700;
+            font-size: 0.95rem;
+        }
+
+        section h3 {
+            font-size: 1.2rem;
+            color: #1f2937;
+            margin-top: 15px;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        section p {
+            color: #555;
+            margin-bottom: 12px;
+            line-height: 1.7;
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .skill-item {
+            background: #f5f5f5;
+            padding: 16px;
+            border-radius: 0;
+            border-left: 3px solid #000000;
+            transition: all 0.3s ease;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .skill-item:hover {
+            background: #000000;
+            color: white;
+            transform: translateX(4px);
+        }
+
+        .skill-item strong {
+            color: #000000;
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .skill-item:hover strong {
+            color: #ffffff;
+        }
+
+        /* Project Cards */
+        .projects-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .project-card {
+            background: #fafafa;
+            padding: 22px;
+            border-radius: 0;
+            border: 1px solid #d0d0d0;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card:hover {
+            border-color: #000000;
+            box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+            transform: translateY(-4px);
+        }
+
+        .project-card h3 {
+            color: #000000;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        .project-card p {
+            flex-grow: 1;
+            color: #555555;
+            font-size: 0.95rem;
+            margin-bottom: 16px;
+            line-height: 1.7;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .project-links a {
+            background: #000000;
+            color: white;
+            padding: 9px 15px;
+            border-radius: 3px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid #000000;
+        }
+
+        .project-links a:hover {
+            background: transparent;
+            color: #000000;
+        }
+
+        .project-links a.live {
+            background: #000000;
+            color: #ffffff;
+            border-color: #000000;
+        }
+
+        .project-links a.live:hover {
+            background: #ffffff;
+            color: #000000;
+        }
+
+        /* Certifications */
+        .cert-list {
+            list-style: none;
+        }
+
+        .cert-list li {
+            padding: 10px 0;
+            padding-left: 25px;
+            position: relative;
+            color: #555;
+        }
+
+        .cert-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #000000;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        /* Profile */
+        .profile-text {
+            background: #f8f8f8;
+            padding: 22px;
+            border-radius: 0;
+            border-left: 3px solid #000000;
+            color: #444;
+            line-height: 1.8;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: white;
+            text-align: center;
+            padding: 24px;
+            margin-top: 45px;
+            border-top: 2px solid #000000;
+        }
+
+        footer p {
+            margin: 5px 0;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+
+            section {
+                padding: 20px;
+            }
+
+            section h2 {
+                font-size: 1.4rem;
+            }
+
+            .skills-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            }
+
+            .projects-container {
+                grid-template-columns: 1fr;
+            }
+
+            .header-links {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .header-links a {
+                display: block;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1.4rem;
+            }
+
+            header p {
+                font-size: 0.85rem;
+            }
+
+            section {
+                padding: 15px;
+                margin: 15px 0;
+            }
+
+            .container {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>👨‍💻 BARNALI DAS</h1>
+        <p>Full-Stack Developer | Computer Science Graduate | Competitive Programmer</p>
+        <p>📞 +91 9937767525 | 📧 barnalixd28@gmail.com | 📍 Bangalore, India</p>
+        <div class="header-links">
+            <a href="https://github.com/BARNALIXD" target="_blank">🔗 GitHub</a>
+            <a href="https://www.linkedin.com/in/barnali-d-139829352" target="_blank">💼 LinkedIn</a>
+            <a href="https://leetcode.com/u/barnalixd28/" target="_blank">💻 LeetCode</a>
+            <a href="https://x.com/barnalixd" target="_blank">𝕏 Twitter</a>
+            <a href="https://www.geeksforgeeks.org/user/barnaxd/" target="_blank">📚 GeeksforGeeks</a>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Profile Section -->
+        <section>
+            <h2>Profile</h2>
+            <div class="profile-text">
+                Enthusiastic Computer Science graduate with hands-on experience in full-stack development and strong problem-solving skills demonstrated through competitive programming. Passionate about building scalable web applications, eager to contribute to innovative projects, and quick to adapt to new technologies.
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section>
+            <h2>Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-item">
+                    <strong>Languages</strong>
+                    Java, JavaScript, SQL, C/C++
+                </div>
+                <div class="skill-item">
+                    <strong>Frontend</strong>
+                    React.js, Next.js, HTML, CSS, TailwindCSS, Bootstrap, Material UI, Shadcn
+                </div>
+                <div class="skill-item">
+                    <strong>Backend</strong>
+                    Node.js, Express.js, Spring Boot
+                </div>
+                <div class="skill-item">
+                    <strong>Databases</strong>
+                    MySQL, Oracle, MongoDB, Mongoose, PostgreSQL
+                </div>
+                <div class="skill-item">
+                    <strong>Tools/Platforms</strong>
+                    Git, GitHub, Figma, AWS, Docker, NGINX
+                </div>
+                <div class="skill-item">
+                    <strong>CS Fundamentals</strong>
+                    OS, DBMS, Networks, DSA, Algorithms
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section>
+            <h2>Featured Projects</h2>
+            <div class="projects-container">
+                <!-- Plutus Labs Project -->
+                <div class="project-card">
+                    <h3>🌙 Plutus Labs SDE Assignment</h3>
+                    <p><strong>MoonEX DEX Platform</strong> - Pixel-perfect Figma recreation with API integration. Built with Next.js 16, TypeScript, and Tailwind CSS. Includes responsive design, dark theme UI, interactive FAQ accordion, and API demo page with real-time filtering.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/BARNALIXD/plutus-labs-assignment" target="_blank">GitHub</a>
+                        <a href="https://plutus-labs-assignment-kgt01r85m-barnalixds-projects.vercel.app/" target="_blank" class="live">🔴 Live Demo</a>
+                    </div>
+                </div>
+
+                <!-- LMS Project -->
+                <div class="project-card">
+                    <h3>📚 Learning Management System</h3>
+                    <p><strong>MERN Stack</strong> - Secure full-stack LMS with JWT authentication and role-based access control. MongoDB, Express.js, React.js, Node.js. Robust user, content, and course management APIs improving learning workflows.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/BARNALIXD/LearningManagementService-SERVER" target="_blank">GitHub</a>
+                    </div>
+                </div>
+
+                <!-- Task Management Project -->
+                <div class="project-card">
+                    <h3>✅ ROI-Based Task Management App</h3>
+                    <p><strong>Full-Stack</strong> - Prioritize tasks based on Return on Investment. React frontend, Express.js backend, Prisma ORM, NeonDB/PostgreSQL. Enhanced responsiveness, performance, and interactive UI.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/BARNALIXD/Task-Management-App" target="_blank">GitHub</a>
+                        <a href="https://task-management-appxd1128.netlify.app/" target="_blank" class="live">🔴 Live Demo</a>
+                    </div>
+                </div>
+
+                <!-- NGINX Project -->
+                <div class="project-card">
+                    <h3>⚙️ NGINX Server Setup</h3>
+                    <p><strong>DevOps/Infrastructure</strong> - Configured and deployed web server with load balancing, reverse proxy, and static file hosting. Implemented secure routing and SSL setup for improved performance and scalability.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/BARNALIXD/NGINX" target="_blank">GitHub</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certifications Section -->
+        <section>
+            <h2>Certifications</h2>
+            <ul class="cert-list">
+                <li>AWS Academy Graduate – Cloud Foundations, Machine Learning (Mar 2024)</li>
+                <li>Google Android Developer Virtual Internship (Apr – Jun 2024)</li>
+                <li>CISCO: Introduction & Essentials to Cybersecurity (Jun 2024)</li>
+                <li>PCAP: Programming Essentials in Python (Jun 2024)</li>
+                <li>Udemy: Web & Mobile Designer UI/UX, Figma (Jun 2024)</li>
+            </ul>
+        </section>
+
+        <!-- Education Section -->
+        <section>
+            <h2>Education</h2>
+            <h3>Government College of Engineering, Kalahandi</h3>
+            <p><strong>B.Tech in Computer Science</strong></p>
+            <p>CGPA: <strong>7.74</strong> | Graduation: <strong>May 2025</strong></p>
+            <p style="color: #999; font-size: 0.9rem;">Odisha, India</p>
+        </section>
+
+        <!-- Extracurricular Section -->
+        <section>
+            <h2>Extracurricular Activities</h2>
+            <h3>🎨 Creative Pursuits</h3>
+            <p>Drawing and designing – Creative exploration through sketching, digital art, and design projects. Active on Instagram and YouTube sharing content creation work.</p>
+            <h3>🏸 Sports Leadership</h3>
+            <p>Lead of College Badminton Team – Represented and led the college team in tournaments and practice sessions. Captain of competitive badminton team.</p>
+        </section>
+    </div>
+
+    <footer>
+        <p><strong>Barnali Das</strong> | Full-Stack Developer</p>
+        <p>🔗 <a href="https://github.com/BARNALIXD" style="color: #fbbf24; text-decoration: none;">github.com/BARNALIXD</a> | 📧 <a href="mailto:barnalixd28@gmail.com" style="color: #fbbf24; text-decoration: none;">barnalixd28@gmail.com</a></p>
+        <p>© 2025. All rights reserved. | Last updated: November 2025</p>
+    </footer>
+</body>
+</html>
